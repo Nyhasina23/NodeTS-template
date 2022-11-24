@@ -9,11 +9,15 @@ export default class UserService {
     }
 
     public getUser(callback: any) {
-        UserModel.find(callback)
+        UserModel.find(callback);
     }
 
-    public updateUser(query: any, user_params: IUser, callback: Function) {
-        UserModel.findByIdAndUpdate(query, { $set: user_params }, callback)
+    public updateUser(query: any, user_params: IUser, callback: any) {
+        UserModel.findByIdAndUpdate(query, { $set: user_params }, callback);
+    }
+
+    public deleteUser(query:any , callback:any){
+        UserModel.findByIdAndDelete(query , callback);
     }
 
 }

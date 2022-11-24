@@ -14,5 +14,8 @@ export class UserRoutes {
         app.put('/user/:id' , (req: Request , res:Response) => {
             this.user_controller.updateUser(req, res)
         });
+        app.delete('/user/:id' , (req: Request , res:Response) => {
+            this.user_controller.deleteUser(req, res)
+        });
     }
 }

@@ -59,6 +59,22 @@ export default class UserController {
         }
 
     }
+    public deleteUser(req:Request , res:Response) {
+
+        if(req.params.id && req.body.username && req.body.password){
+
+            this.user_service.deleteUser(req.params.id , (err:any, user_data:IUser) => {
+                if(err) {
+                    mongoError(err , res);
+                }else{
+                    successResponse('User deleted' , user_data , res);
+                }
+            })
+        }else{
+            insufficientParameters(res);
+        }
+
+    }
 
 
 
