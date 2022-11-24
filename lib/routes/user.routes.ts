@@ -6,10 +6,13 @@ export class UserRoutes {
 
     public route(app: Application){
         app.get('/user' , (req: Request , res:Response) => {
-            res.status(200).send("Get user success")
+            this.user_controller.getUser(req , res);
         });
         app.post('/user' , (req: Request , res:Response) => {
             this.user_controller.createUser(req, res)
+        });
+        app.put('/user/:id' , (req: Request , res:Response) => {
+            this.user_controller.updateUser(req, res)
         });
     }
 }
